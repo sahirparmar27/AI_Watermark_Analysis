@@ -1,0 +1,10 @@
+
+_venv/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+static/uploads/*
+static/generated/*
+database/*.db

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Watermark Lab — Independent Prototype</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav><a class="brand" href="{{ url_for('home') }}">AI Watermark Lab</a>
+    <div><a href="{{ url_for('home') }}">Analyze</a><a href="{{ url_for('dashboard') }}">Experiment Dashboard</a></div>
+  </nav>
+  <main>
+    {% with messages = get_flashed_messages() %}{% if messages %}<div class="flash">{% for m in messages %}<p>{{ m }}</p>{% endfor %}</div>{% endif %}{% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>Independent research prototype · Results are experimental, not proof of image origin</footer>
+</body></html>

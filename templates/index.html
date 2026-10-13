@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% block content %}
+<section class="hero">
+  <span class="eyebrow">INDEPENDENT IMAGE WATERMARK ANALYSIS</span>
+  <h1>Inspect an image.<br><span>Understand the evidence.</span></h1>
+  <p>Upload an image for an automatic local scan. The prototype checks for its own experimental hidden marker, searches for repeated visible text, and reports file metadata and a SHA-256 hash. No Google account or external detector is required.</p>
+  <form class="upload" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/png,image/jpeg,image/webp" required>
+    <button>Analyze Image →</button>
+  </form>
+  <p class="small">PNG, JPG, JPEG or WEBP · Max 25 MB · Local processing</p>
+</section>
+<section class="twocol">
+  <article class="card"><div class="number">01 / VISIBLE</div><h2>Visible text watermark scan</h2><p>OCR and image preprocessing search for repeated text that may be a watermark. Faint, stylized or diagonal text can be missed, so candidates require visual review.</p></article>
+  <article class="card"><div class="number">02 / HIDDEN</div><h2>Experimental hidden marker</h2><p>Checks for a small custom marker embedded by this prototype. It does not detect arbitrary invisible watermarks or proprietary schemes.</p></article>
+  <article class="card"><div class="number">03 / EVIDENCE</div><h2>Image details and integrity</h2><p>Displays dimensions, format, available EXIF fields and SHA-256 hash. Metadata can be missing or edited; a hash identifies exact file bytes, not authorship.</p></article>
+  <article class="card"><div class="number">04 / EVALUATION</div><h2>Transformation experiments</h2><p>Embed the demo marker, then test crop, resize, brightness, contrast and JPEG compression. Results help measure this marker’s limitations.</p></article>
+</section>
+<div class="notice"><b>Scientific limitation:</b> this version does not classify images as AI-generated or human-created. Absence of a detected watermark is not evidence that an image is human-made. AI-origin classification will require a separately evaluated model and labelled test dataset.</div>
+{% endblock %}
